@@ -2,8 +2,11 @@
 # System Design Interviews:
 
 https://github.com/checkcheckzz/system-design-interview
+
 https://github.com/shashank88/system_design
+
 https://www.quora.com/What-is-the-best-way-to-prepare-for-a-System-Design-interview-for-Amazon
+
 https://www.educative.io/courses/grokking-the-system-design-interview
 
 
