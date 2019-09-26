@@ -9,3 +9,7 @@ https://www.youtube.com/watch?v=HAAhn--tZV8
 https://www.youtube.com/watch?v=z7FX9xHgKWc
 
 ACID Properties
+
+
+
+NOSQL http://highscalability.com/blog/2010/12/6/what-the-heck-are-you-actually-using-nosql-for.html
