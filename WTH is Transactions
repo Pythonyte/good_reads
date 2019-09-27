@@ -1,0 +1,135 @@
+Transactions:
+A transaction is a way for an application to group several reads and writes
+together into a logical unit. Conceptually, all the reads and writes in a transaction are
+executed as one operation: either the entire transaction succeeds (commit) or it fails
+(abort, rollback).
+
+
+
+_____________________________________________________________________________________________________________________________
+
+
+
+
+Issues with databases:
+• The database software or hardware may fail at any time (including in the middle
+of a write operation).
+• The application may crash at any time (including halfway through a series of
+operations).
+• Interruptions in the network can unexpectedly cut off the application from the
+database, or one database node from another.
+• Several clients may write to the database at the same time, overwriting each
+other’s changes.
+• A client may read data that doesn’t make sense because it has only partially been
+updated.
+• Race conditions between clients can cause surprising bugs.
+
+
+
+_____________________________________________________________________________________________________________________________
+
+
+
+
+
+* Database provide safety garuntees i.e. ACID*
+* All relational databases today, and some nonrelational databases, support
+transactions. *
+
+
+
+_____________________________________________________________________________________________________________________________
+
+
+
+
+ACID:
+Atomicity: (Abortability)
+If the writes are grouped together into an atomic transaction, and the transaction cannot be completed (committed) due to a fault, then the transaction is aborted and the database must discard or undo any writes it has made so far in that transaction.
+
+Atomicity simplifies this problem: if a transaction was aborted, the application can be sure that it didn’t change anything, so it can safely be retried.
+
+* atomicity is not about concurrency *
+
+consistency:
+The idea of ACID consistency is that you have certain statements about your data (invariants) that must always be true.
+If a transaction starts with a database that is valid according to these invariants, and any writes during the transaction preserve the validity, then you can be sure that the invariants are always satisfied.
+
+* Atomicity, isolation, and durability are properties of the database, whereas consistency (in the ACID sense) is a property of the application.*
+
+Isolation:
+Isolation in the sense of ACID means that concurrently executing transactions are
+isolated from each other.
+isolation as serializability, which means that each transaction can pretend that it is the only transaction running on the entire database. The database ensures that when the transactions have committed, the result is the same as if they had run serially (one after another), even though in reality they may have run concurrently.
+*To achieve isolation in transactions, we have certain levels from strictness to flexible, called Isolation levels..*
+
+Durability:
+Durability is the promise that once a transaction has committed successfully, any data it has written will not be forgotten, even if there is a hardware fault or the database crashes.
+Peception of the same may vary with single and distributed database.
+*perfect durability does not exist*
+
+
+_____________________________________________________________________________________________________________________________
+
+
+
+				           Extra Notes about transactions
+
+* Atomicity can be implemented using a log for crash recovery and isolation can be implemented
+using a lock on each object (allowing only one thread to access an object at any one time). *
+
+* increment operation, which removes the need for a read-modify-write cycle*
+
+* compare-and-set operation, which allows a write to happen only if the value has not been concurrently changed by someone else *
+
+* the indexes also need to be updated every time you change a value *
+
+* can be aborted and safely retried if an error occurred. *
+
+
+Should we retry transaction after failure:
+
+    • retrying the transaction causes it to be performed twice if network failure occurs after successful transaction.
+    • If the error is due to overload, retrying the transaction will make the problem worse, not better. To avoid such feedback cycles, you can limit the number of retries.
+    • If the transaction also has side effects outside of the database, those side effects
+    • may happen even if the transaction is aborted. (Email will go twice if its in transaction and transaction got retried) 
+
+
+_____________________________________________________________________________________________________________________________
+
+
+
+
+Transaction Types:
+
+	Single Object: one write, but may have huge data (json update)
+
+	Multi Object: group of writes, dependent or independent
+
+* Many distributed datastores have abandoned multi-object transactions because they are difficult to implement across partitions *
+
+
+
+
+
+_____________________________________________________________________________________________________________________________
+
+
+
+
+
+Transaction Isolations:
+    • Strong Isolation levels
+        ◦ Serializable Isolation (run transactions serially)
+    • Week Isolation levels (nonSerializable)
+        ◦ read committed
+            ▪ When reading from the database, you will only see data that has been committed 
+                • Solving dirty read problem i.e. :
+                    ◦ Imagine a transaction has written some data to the database, but the transaction has not yet committed or aborted. Can another transaction see that uncommitted data? If yes, that is called a dirty read
+            ▪ When writing to the database, you will only overwrite data that has been committed
+                • Solving dirty writes problem i.e. :
+                    ◦ 
+
+
+
+
