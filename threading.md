@@ -4,9 +4,7 @@
 |------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|
 | <b>Program / Process / Threads Discussion </b>| [View](https://www.backblaze.com/blog/whats-the-diff-programs-processes-and-threads/) |
 | <b>Program / Process / Threads Example</b>| [View](https://medium.com/@bishowgurung.c/program-vs-process-vs-thread-vs-task-ff510b741f3e) |
-
-| <b>Choose Process over Thread, or Thread over Process</b>| 
-[View](https://www.backblaze.com/blog/whats-the-diff-programs-processes-and-threads/)|
+| <b>Choose Process over Thread, or Thread over Process</b>| [View](https://www.backblaze.com/blog/whats-the-diff-programs-processes-and-threads/)|
 
 
 # Case Study
