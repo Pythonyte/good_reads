@@ -2,10 +2,8 @@
 
 | Topic   | Links |
 |------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|
-| <b>Program / Process / Threads</b>| 
-[View](https://www.backblaze.com/blog/whats-the-diff-programs-processes-and-threads/) 
-<br/> 
-[View](https://medium.com/@bishowgurung.c/program-vs-process-vs-thread-vs-task-ff510b741f3e) |
+| <b>Program / Process / Threads</b>| [View](https://www.backblaze.com/blog/whats-the-diff-programs-processes-and-threads/) 
+<br/> [View](https://medium.com/@bishowgurung.c/program-vs-process-vs-thread-vs-task-ff510b741f3e) |
 
 | <b>Choose Process over Thread, or Thread over Process</b>| 
 [View](https://www.backblaze.com/blog/whats-the-diff-programs-processes-and-threads/)|
