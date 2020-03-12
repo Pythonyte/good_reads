@@ -3,7 +3,7 @@
 | Topic   | Links |
 |------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|
 | <b>Celery 1 </b>| [View](https://medium.com/the-andela-way/asynchronous-processing-in-celery-79f88fa599a5) |
-| <b>Celery 2 </b>| [View]http://devopspy.com/python/celery-an-overview-how-it-works/)
+| <b>Celery 2 </b>| [View](http://devopspy.com/python/celery-an-overview-how-it-works/)
 
 # Case Study
 
