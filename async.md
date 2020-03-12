@@ -9,4 +9,4 @@
 
 | Topic   | Links |
 |------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|
-| <b>Celery Issues </b>| https://medium.com/@taylorhughes/three-quick-tips-from-two-years-with-celery-c05ff9d7f9eb)
+| <b>Celery Issues </b>| [View](https://medium.com/@taylorhughes/three-quick-tips-from-two-years-with-celery-c05ff9d7f9eb)
