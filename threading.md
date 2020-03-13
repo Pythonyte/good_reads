@@ -17,3 +17,4 @@
 | <b>Chrome multi process architecture</b>| [View](https://blog.chromium.org/2008/09/multi-process-architecture.html)|
 | <b>GIL Issues When few CPU and Few IO Bound tasks in one python process</b>| [View](http://dabeaz.blogspot.com/2010/01/python-gil-visualized.html)|
 | <b>Fix for GIL battle of CPU/IO Bound threads</b>| [View](https://mail.python.org/pipermail/python-dev/2009-October/093321.html)|
+| <b>Thread Safe Singleton</b>| [View](https://stackoverflow.com/questions/50566934/why-is-this-singleton-implementation-not-thread-safe)
