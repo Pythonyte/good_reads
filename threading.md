@@ -9,7 +9,7 @@
 | <b>Thread / RaceCondition/ Producer Consumer </b>| [View](https://realpython.com/intro-to-python-threading/)|
 | <b>COncurrency MultiThreading, MultiProcessing, AsyncIO </b>| [View](https://realpython.com/python-concurrency/)|
 | <b> How does asyncio work? </b>| [View](https://stackoverflow.com/questions/49005651/how-does-asyncio-actually-work/51116910#51116910)|
-
+| <b> GIL Python work? </b>| [View](https://realpython.com/python-gil/) |
 # Case Study
 
 | Topic   | Links |
