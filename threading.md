@@ -6,7 +6,7 @@
 | <b>Program / Process / Threads Example</b>| [View](https://medium.com/@bishowgurung.c/program-vs-process-vs-thread-vs-task-ff510b741f3e) |
 | <b>Choose Process over Thread, or Thread over Process</b>| [View](https://www.backblaze.com/blog/whats-the-diff-programs-processes-and-threads/)|
 | <b>Multithreading Overview</b>| [View](https://www.quora.com/What-is-multithreading-in-programming-How-does-it-work/answer/John-Vriezen?ch=10&share=6e5da4bf&srid=vcaUI)
-
+| <b>Thread / RaceCondition/ Producer Consumer </b>| [View](https://realpython.com/intro-to-python-threading/)
 # Case Study
 
 | Topic   | Links |
