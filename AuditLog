@@ -1,0 +1,26 @@
+AuditLog
+
+1) Tables
+	i) AuditLog - Old table (can be deleted)
+	ii) ExternalAuditLog - Most of the fields are shown to end users 
+	iii) InternalAuditLog - Most of the fields are hidden from end users
+
+2) Tweaks to improve performance of the "view all" page
+	i) Instead of StandardPagination we used CursorPagination.
+	ii) Added index on the fields which user can filter
+	iii) Added PositiveInteger field type for field with limited set of values to save size
+	iv) Used BaseAPIView instead of BaseModelViewset
+	v) Smartly filters and show API response without joining User and Facility tables
+	vi) Have a separate URL to view audit log reports
+	vii) When exporting only first 10,000 records are exported.
+	viii) No sorting allowed from FE. Default sorting is on 'created' field.
+
+
+3) Things to know
+	i) Whenever new Viewset/View/Model is created, ensure there is a mapping for this. When saving auditlog, if no mapping is found for entity then 0 is saved.
+	ii) 'external_extra' contains all the extra information that is shown in FE but doesn't need filtering. The format should be in json
+	iii) There are 3 extra fields in external and internal log model for future use. You can alter the name and use the field in future.
+	iv) Use 'should_create_auditlog_entry' flag if you want to disable auditlog. By default audit log is created for all authenticated API's inheriting 'BaseModelViewset' and 'BaseApiView' 
+	v) Use 'log_response_data' flag if you want to log auditlog but don't want to save API response data. By default, non-json and view all API's response is not saved
+	vi) There are more that 150 entities that is logged. Instead of showing all these entities to FE dropdown, we show "groups". "Groups" are very limited and any entity belongs to one of the group.
+	vii) When filtering entiities, FE sends us group. We then find all the entities belonging to that group and filter our "ExternalAuditLog" table with "entities__in" filter. 

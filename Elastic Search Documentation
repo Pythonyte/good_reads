@@ -1,0 +1,78 @@
+Elastic Search Documentation
+
+Current Implementation
+
+Library 
+Django haystack(2.8.1) - https://github.com/django-haystack/django-haystack
+elasticsearch - 6.3.0
+drf-haystack - 1.8.3
+AWS Elastic Search Version - 2.3
+
+
+- There is a EC2 machine that have 4 crons that run every 5 minutes to update indexes
+
+Current Issues/Limitation
+
+- EC2 running 24/7 just to update index
+- Data is not encrypted in ES node
+- Elastic Search Version is old (2.3)
+- No Monitoring of cron
+
+
+
+
+Enhancemenet V1 - Update Elastic version to 5.6 and enable encryption at rest for indexes
+
+ - Backend branch - elastic_search_version_upgrade
+ - PR - https://us-east-2.console.aws.amazon.com/codesuite/codecommit/repositories/verifi.backend/pull-requests/2076/changes?region=us-east-2
+ - Note: Django Haystack doesn't have special support for ES 5.x version. There is a master branch which contains unofficial support for 5.x. We have enhanced a code little to fix some issues that was not working.
+
+
+Setting up Elastic search 5.6 cluster on AWS
+
+branch - elastic_search_terraform
+PR - https://us-east-2.console.aws.amazon.com/codesuite/codecommit/repositories/verifi.backend/pull-requests/4152/details?region=us-east-2
+
+1) Create ES cluster on AWS using terraform scripts
+
+cd terraform/elastic_search/elastic_search_cluster
+
+terraform apply -var-file=stage.tfvars
+
+2) Create ES roles and s3 bucket that will be required by the API's in next step
+
+
+cd terraform/elastic_search/elastic_search_snapshot_roles
+
+terraform apply -var-file=stage.tfvars in elastic_search_snapshot_roles
+
+
+3) Create and Restore the snapshot
+
+python create_snapshot.py
+
+
+4) Update Route 53 url
+
+5) Update ES EC2 backend code
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+
+To check health of ES Cluster
+
+curl -X GET https://vpc-stage-testvfi-useast2-search-wsuohsiz43grtreip5y2qn4wia.us-east-2.es.amazonaws.com/_cat/health
+
+
+
+* Not working direct api call for alias 
+* Used non-official git hub repo
+* there would be one infra (es_upgrade with req.txt) and one backend (code change) + tf scripts 
+* How to deploy on ES machine (needs to put all code there too) and one deployment for other clusters
+* Why Book: {role_permissions.CAN_ACCESS_BOOK_INVENTORY_TAB: False},
+* Changed code of ESEngine Elasticsearch5SearchEngine
+* Check diff between ES2.x and ES5.x queries
+
